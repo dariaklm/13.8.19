@@ -1,0 +1,18 @@
+tickets = int(input("Сколько билетов вы хотите приобрести: "))
+age_for_tickets = [int(input("Введите, пожалуйста, возраст каждого из посетителей: ")) for age in range(tickets)]
+listMask = []
+for age in age_for_tickets:
+    if age < 18:
+        listMask.append(0)
+    elif 18 <= age < 25:
+         listMask.append(990)
+    else:
+         listMask.append(1390)
+price = sum(listMask)
+print("Вы заказали",int(tickets), "билетов")
+print("Cтоиомсть каждого билета",(listMask),"руб. соответственно")
+if tickets > 3:
+    discount_price = price - ((price / 100) * 10)
+    print("Итого к оплате: ",int(discount_price),"руб., применена скидка 10% за покупку более 3 билетов единовременно")
+else:
+    print("Итого к оплате: ",int(price),"руб.")
